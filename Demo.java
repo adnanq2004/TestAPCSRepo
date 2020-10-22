@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Demo {
 
 	public static String arrToString(int[] arr) {
@@ -29,6 +31,22 @@ public class Demo {
 		return returnval;
 	}
 
+	public static int[][] create2DArray(int rows, int cols, int maxValue) {
+		int[][] thing = new int[rows][cols];
+		int r = 0;
+		Random random = new Random();
+		for (int row = 0; row < rows; row++) {
+			for (int col = 0; col < cols; col++) {
+				r = random.nextInt(maxValue + 1);
+				thing[row][col] = r;
+				//if (count == 4) {
+				//
+				//}
+			}
+		}
+		return thing;
+	}
+
 	public static void printLoop(int x) {
 		for (int i = 1; i <= x; i++) {
 			for (int j = 0; j < x - i + 1; j++) {
@@ -40,8 +58,10 @@ public class Demo {
 
 	public static void main(String[] args){
 		//printLoop(Integer.valueOf(args[0]));
-		int[][] thing = new int[Integer.valueOf(args[0])][Integer.valueOf(args[1])];
-		System.out.println(arrayDeepToString(thing));
+		//int[][] thing = new int[Integer.valueOf(args[0])][Integer.valueOf(args[1])];
+		//System.out.println(arrayDeepToString(thing));
+		String returnval = arrayDeepToString(create2DArray(Integer.valueOf(args[0]), Integer.valueOf(args[1]), Integer.valueOf(args[2])));
+		System.out.println(returnval);
 	}
 
 }
