@@ -4,17 +4,29 @@ public class Demo {
 		String val = "{";
 		for (int i = 0; i < arr.length; i++) {
 			val += Integer.toString(arr[i]);
-			if (i!- arr.length(-1)) {
-				val += ", "
+			if (i!= arr.length-1) {
+				val += ", ";
 			}
 			else {
 				val += "}";
 			}
 		}
 		if (arr.length == 0) {
-			val == "{}";
+			val = "{}";
 		}
 		return val;
+	}
+
+	public static String arrayDeepToString(int[][] arr) {
+		String returnval = "{";
+		for (int row = 0; row < arr.length; row++) {
+			returnval += arrToString(arr[row]);
+			if (row != arr.length-1) {
+				returnval += ", ";
+			}
+		}
+		returnval += "}";
+		return returnval;
 	}
 
 	public static void printLoop(int x) {
@@ -27,7 +39,9 @@ public class Demo {
 	}
 
 	public static void main(String[] args){
-		printLoop(Integer.valueOf(args[0]));
+		//printLoop(Integer.valueOf(args[0]));
+		int[][] thing = new int[Integer.valueOf(args[0])][Integer.valueOf(args[1])];
+		System.out.println(arrayDeepToString(thing));
 	}
 
 }
